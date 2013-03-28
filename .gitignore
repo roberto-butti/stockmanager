@@ -1,0 +1,5 @@
+*.pyc
+*.egg-info
+*.db
+stockmanager/settings/local.py
+stockmanager/settings/local/*
