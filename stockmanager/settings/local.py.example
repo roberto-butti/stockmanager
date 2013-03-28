@@ -14,12 +14,13 @@ TEMPLATE_DEBUG = DEBUG
 ADMINS = (
     ('You', 'your@email'),
 )
+
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(VAR_ROOT, 'dev.db'),
+        'NAME': os.path.join(PROJECT_DIR, 'dev.db'),
     }
 }
 
