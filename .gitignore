@@ -3,3 +3,4 @@
 *.db
 stockmanager/settings/local.py
 stockmanager/settings/local/*
+venv
