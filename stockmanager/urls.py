@@ -10,6 +10,8 @@ urlpatterns = patterns('',
    # (r'', include('stockmanager.apps.')),
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^admin/', include(admin.site.urls)),
+
+    (r'', 'frontend.views.index'),
 )
 
 # Serve media files if debug is on
