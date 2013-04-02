@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="row login">
+		<div class="large-12 small-12 columns">
+			<h2>Pagina di login</h2>
+
+			{% if msg %}
+			<p class="round label alert">{{ msg }}</p>
+			{% endif %}
+
+			<form method="POST" action="">
+				<div class="row">
+					<div class="large-12 columns">
+						<label for="username">Username</label>
+						<input type="text" name="username" id="username">
+					</div>
+					<div class="large-12 columns">
+						<label for="password">Password</label>
+						<input type="password" name="password" id="password">
+					</div>
+					<div class="large-12 large-offset-5 columns">
+						<input class="small button" type="submit" value="Log-in">
+					</div>
+				</div>
+				{% csrf_token %}
+			</form>
+		</div>
+	</div>
+{% endblock content %}

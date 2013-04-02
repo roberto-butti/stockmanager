@@ -11,7 +11,11 @@ urlpatterns = patterns('',
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^admin/', include(admin.site.urls)),
 
-    (r'', 'frontend.views.index'),
+    # Application urls
+    (r'^$', 'frontend.views.indexAction'),
+    (r'^login/$', 'frontend.views.loginAction'),
+    (r'^register/$', 'frontend.views.registerAction'),
+    (r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'})
 )
 
 # Serve media files if debug is on
