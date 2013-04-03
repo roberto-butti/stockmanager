@@ -13,6 +13,7 @@ urlpatterns = patterns('',
 
     # Application urls
     (r'^$', 'frontend.views.indexAction'),
+    (r'^upload/$', 'picturemanager.views.uploadAction'),
     (r'^login/$', 'frontend.views.loginAction'),
     (r'^register/$', 'frontend.views.registerAction'),
     (r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'})

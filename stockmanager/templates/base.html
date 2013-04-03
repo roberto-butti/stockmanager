@@ -17,13 +17,13 @@
 		<nav class="top-bar">
 			<ul class="title-area">
 				<li class="name">
-					<h1><a href="/">Stock manager</a></h1>
+					<h1><a href="{% url frontend.views.indexAction %}">Stock manager</a></h1>
 				</li>
 			</ul>
 			<section class="top-bar-section">
 				<ul class="left">
 					<li class="divider"></li>
-					<li><a href="/upload">Carica una foto</a></li>
+					<li><a href="{% url picturemanager.views.uploadAction %}">Carica una foto</a></li>
 					<li class="divider"></li>
 					<li><a href="/search">Cerca una foto</a></li>
 					<li class="divider"></li>
@@ -32,14 +32,12 @@
 				<ul class="right">
 					{% if not user.is_authenticated %}
 					<li class="divider"></li>
-					<li><a href="/register">Registrati</a></li>
-					<li class="divider"></li>
-					<li><a href="/login">Login</a></li>
+					<li><a href="{% url frontend.views.loginAction %}">Login</a></li>
 					{% else %}
 					<li class="divider"></li>
 					<li><a href="/profile/{{ user.id }}">Benvenuto, {{ user.username }}</a></li>
 					<li class="divider"></li>
-					<li><a href="/logout">Logout</a></li>
+					<li><a href="{% url django.contrib.auth.views.logout %}">Logout</a></li>
 					{% endif %}
 				</ul>
 			</section>
