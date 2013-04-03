@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h2>Carica una foto</h2>
+
+	{% if message %}
+		<p class="label round {{ message.class }}">{{ message.text }}</p>
+	{% endif %}
+
+	<form enctype="multipart/form-data" action="." method="POST">
+		{{ form.as_p }}
+		<input type="submit" class="small button" value="Upload">
+		{% csrf_token %}
+	</form>
+{% endblock content %}
