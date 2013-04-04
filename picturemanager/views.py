@@ -12,21 +12,21 @@ from pprint import pprint
 class PictureForm(ModelForm):
 	class Meta:
 		model = Picture
-		readonly_fields = ('author')
+		exclude = ('author')
 
 def uploadAction(request):
-	pictureForm = PictureForm(initial={'author': request.user.id})
+	pictureForm = PictureForm()
 
 	message = False
 
 	if request.method == 'POST':
+
 		# posted a form
-		pictureForm = PictureForm(request.POST, request.FILES)
+		picture = Picture(author=User.objects.get(id=request.user.id)) # Set the picture author
+		pictureForm = PictureForm(request.POST, request.FILES, instance=picture)
 
 		if pictureForm.is_valid():
-			# form is valid
-			pictureForm.cleaned_data['exif'] = 'blablabla'
-
+			# save the form
 			pictureForm.save()
 
 			# reset form
