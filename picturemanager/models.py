@@ -9,7 +9,10 @@ class Picture(models.Model):
 	projects = models.ManyToManyField('Project')
 	uploaded = models.DateTimeField(auto_now=True)
 	picture = models.ImageField(upload_to='pictures')
-	exif = models.TextField(blank=True, null=True)
+	width = models.IntegerField(default=0)
+	height = models.IntegerField(default=0)
+	image_type = models.CharField(max_length=5, default='')
+	image_size = models.IntegerField(default=0)
 
 	def __unicode__(self):
 		return self.name
